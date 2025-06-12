@@ -25,7 +25,7 @@ function LoginPage() {
       padding: 0,
       overflowX: 'hidden'
     }}>
-      <form onSubmit={handleLogin} style={{
+ <form onSubmit={handleLogin} style={{
         background: '#fff',
         padding: window.innerWidth < 500 ? 18 : 32,
         borderRadius: 16,
@@ -36,7 +36,8 @@ function LoginPage() {
         display: 'flex',
         flexDirection: 'column',
         gap: 16,
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        direction: 'rtl'
       }}>
         <h2 style={{ textAlign: 'center', color: '#5f2c82', marginBottom: 8, fontSize: 22 }}>تسجيل الدخول</h2>
         <input
