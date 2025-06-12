@@ -11,13 +11,13 @@ function TasksPage() {
   const [editTaskTitle, setEditTaskTitle] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/projects/${id}/tasks`)
+    axios.get(`https://project-mini-task-manager-2.onrender.com/projects/${id}/tasks`)
       .then(res => setTasks(res.data))
       .catch(err => console.error(err));
   }, [id]);
 
   const handleAddTask = () => {
-    axios.post(`http://localhost:3001/projects/${id}/tasks`, { title: newTask })
+    axios.post(`https://project-mini-task-manager-2.onrender.com/projects/${id}/tasks`, { title: newTask })
       .then(res => {
         setTasks([...tasks, res.data]);
         setNewTask('');
@@ -25,14 +25,14 @@ function TasksPage() {
   };
 
   const handleDelete = (taskId) => {
-    axios.delete(`http://localhost:3001/tasks/${taskId}`)
+    axios.delete(`https://project-mini-task-manager-2.onrender.com/tasks/${taskId}`)
       .then(() => {
         setTasks(tasks.filter(t => t.id !== taskId));
       });
   };
 
   const toggleComplete = (task) => {
-    axios.put(`http://localhost:3001/tasks/${task.id}`, {
+    axios.put(`https://project-mini-task-manager-2.onrender.com/tasks/${task.id}`, {
       title: task.title,
       completed: task.completed ? 0 : 1
     }).then(() => {
@@ -46,7 +46,7 @@ function TasksPage() {
   };
 
   const handleEditSave = (task) => {
-    axios.put(`http://localhost:3001/tasks/${task.id}`, {
+    axios.put(`https://project-mini-task-manager-2.onrender.com/tasks/${task.id}`, {
       title: editTaskTitle,
       completed: task.completed ? 1 : 0
     }).then(() => {
