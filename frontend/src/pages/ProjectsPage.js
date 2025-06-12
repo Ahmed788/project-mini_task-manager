@@ -8,13 +8,13 @@ function ProjectsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:3001/projects')
+    axios.get('https://project-mini-task-manager-2.onrender.com/projects')
       .then(res => setProjects(res.data))
       .catch(err => console.error(err));
   }, []);
 
   const handleAddProject = () => {
-    axios.post('http://localhost:3001/projects', { name: newProject })
+    axios.post('https://project-mini-task-manager-2.onrender.com/projects', { name: newProject })
       .then(res => {
         setProjects([...projects, res.data]);
         setNewProject('');
