@@ -11,26 +11,32 @@ function LoginPage() {
     // تسجيل دخول وهمي فقط
     navigate('/projects');
   };
-
-  return (
+turn (
     <div style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      background: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)'
+      background: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
+      boxSizing: 'border-box',
+      width: '100vw',
+      padding: 0,
+      overflowX: 'hidden'
     }}>
       <form onSubmit={handleLogin} style={{
         background: '#fff',
-        padding: 32,
+        padding: window.innerWidth < 500 ? 18 : 32,
         borderRadius: 16,
         boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
-        minWidth: 320,
+        minWidth: 0,
+        width: '95vw',
+        maxWidth: 340,
         display: 'flex',
         flexDirection: 'column',
-        gap: 16
+        gap: 16,
+        boxSizing: 'border-box'
       }}>
-        <h2 style={{ textAlign: 'center', color: '#5f2c82', marginBottom: 8 }}>تسجيل الدخول</h2>
+        <h2 style={{ textAlign: 'center', color: '#5f2c82', marginBottom: 8, fontSize: 22 }}>تسجيل الدخول</h2>
         <input
           type="text"
           placeholder="اسم المستخدم"
@@ -40,7 +46,8 @@ function LoginPage() {
             padding: 12,
             borderRadius: 8,
             border: '1px solid #ccc',
-            fontSize: 16
+            fontSize: 16,
+            minWidth: 0
           }}
         />
         <input
@@ -52,7 +59,8 @@ function LoginPage() {
             padding: 12,
             borderRadius: 8,
             border: '1px solid #ccc',
-            fontSize: 16
+            fontSize: 16,
+            minWidth: 0
           }}
         />
         <button type="submit" style={{
