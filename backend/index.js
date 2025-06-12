@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 
 // Middlewares
 app.use(cors());
@@ -14,8 +14,8 @@ const taskRoutes = require('./routes/tasks');
 app.use('/projects', projectRoutes);
 app.use('/tasks', taskRoutes);
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 app.get('/', (req, res) => {
